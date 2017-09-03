@@ -10,10 +10,13 @@ provider:
     SLACK_WEBHOOK_URL: ${file(./secrets.yml):slack_webhook_url}
 
 functions:
-  execute: {handler: handler.execute}
   ping: {handler: handler.ping}
   site: {handler: handler.site}
   sites: {handler: handler.sites}
+  execute:
+    handler: handler.execute
+    events:
+      - schedule: cron(0 19 * * ? *)
 
 resources:
   Resources:
