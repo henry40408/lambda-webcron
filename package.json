@@ -6,7 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["aws", "lambda", "web", "cron", "webcron"],
+  "keywords": [
+    "aws",
+    "lambda",
+    "web",
+    "cron",
+    "webcron"
+  ],
   "author": "Heng-Yi Wu <@henry40408>",
   "license": "MIT",
   "private": true,
@@ -19,8 +25,10 @@
     "eslint-plugin-standard": "^3.0.1"
   },
   "dependencies": {
+    "@slack/client": "^3.12.0",
     "dynamoose": "^0.8.5",
     "lodash": "^4.17.4",
+    "numeral": "^2.0.6",
     "promise-settle": "^0.3.0",
     "request": "^2.81.0",
     "request-promise-native": "^1.0.4"

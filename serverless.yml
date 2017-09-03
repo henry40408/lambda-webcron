@@ -6,6 +6,8 @@ provider:
   stage: production
   region: ap-northeast-1
   timeout: 30
+  environment:
+    SLACK_WEBHOOK_URL: ${file(./secrets.yml):slack_webhook_url}
 
 functions:
   execute: {handler: handler.execute}

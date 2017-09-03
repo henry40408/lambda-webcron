@@ -1,4 +1,6 @@
+const IncomingWebhook = require('@slack/client').IncomingWebhook
 const dynamoose = require('dynamoose')
+const numeral = require('numeral')
 const request = require('request-promise-native')
 const settle = require('promise-settle')
 const pick = require('lodash/pick')
@@ -9,23 +11,72 @@ const Site = dynamoose.model('sites', {
   url: { type: String, required: true }
 })
 
+const webhook = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL)
+
 function invokeCron (site) {
   const { name } = site
 
   const opts = {
     resolveWithFullResponse: true,
-    simple: true
+    simple: true,
+    time: true
   }
 
   return request(site.url, opts)
-    .then(response => pick(response, 'body', 'statusCode'))
+    .then(response => pick(response, 'body', 'elapsedTime', 'statusCode'))
     .then(response => ({ name, response }))
+}
+
+function sendSlackNotification (results) {
+  const attachments = results.map(result => {
+    const isFulfilled = result.isFulfilled()
+    const value = result.value()
+    const response = value.response
+
+    return {
+      fallback: `${isFulfilled
+        ? 'success'
+        : 'failed'}: webcron of ${value.name}`,
+      color: isFulfilled ? 'good' : 'danger',
+      fields: [
+        {
+          title: 'Name',
+          value: value.name
+        },
+        {
+          title: 'Status Code',
+          value: response.statusCode,
+          short: true
+        },
+        {
+          title: 'Elapsed Time',
+          value: `${numeral(response.elapsedTime).format('0,0')} ms`,
+          short: true
+        },
+        {
+          title: 'Body',
+          value: response.body ? response.body : '_(empty)_'
+        }
+      ],
+      mrkdwn_in: ['fields', 'pretext']
+    }
+  })
+
+  if (attachments[0]) {
+    attachments[0].pretext = `*${attachments.length}* webcron(s) have been invocated`
+  }
+
+  return webhook.send({ attachments })
 }
 
 exports.execute = (event, context, callback) =>
   Site.scan()
     .exec()
     .then(sites => settle(sites.map(invokeCron)))
+    .then(results => {
+      sendSlackNotification(results)
+      return results
+    })
     .then(results =>
       callback(null, {
         statusCode: 200,
