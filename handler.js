@@ -1,17 +1,20 @@
 const IncomingWebhook = require('@slack/client').IncomingWebhook
+
 const dynamoose = require('dynamoose')
 const numeral = require('numeral')
+const pick = require('lodash/pick')
 const request = require('request-promise-native')
 const settle = require('promise-settle')
-const pick = require('lodash/pick')
 
-const Site = dynamoose.model('sites', {
+const { DYNAMODB_TABLE_NAME, SLACK_WEBHOOK_URL } = process.env
+
+const Site = dynamoose.model(DYNAMODB_TABLE_NAME, {
   id: { type: String, lowercase: true },
   name: { type: String, required: true },
   url: { type: String, required: true }
 })
 
-const webhook = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL)
+const webhook = new IncomingWebhook(SLACK_WEBHOOK_URL)
 
 function invokeCron (site) {
   const { name } = site
@@ -61,10 +64,6 @@ function sendSlackNotification (results) {
       mrkdwn_in: ['fields', 'pretext']
     }
   })
-
-  if (attachments[0]) {
-    attachments[0].pretext = `*${attachments.length}* webcron(s) have been invocated`
-  }
 
   return webhook.send({ attachments })
 }

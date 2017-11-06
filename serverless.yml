@@ -7,6 +7,7 @@ provider:
   region: ap-northeast-1
   timeout: 30
   environment:
+    DYNAMODB_TABLE_NAME: ${file(./secrets.yml):dynamodb_table_name}
     SLACK_WEBHOOK_URL: ${file(./secrets.yml):slack_webhook_url}
 
 functions:
@@ -23,7 +24,7 @@ resources:
     DynamoDbTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: sites
+        TableName: ${file(./secrets.yml):dynamodb_table_name}
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S
@@ -47,6 +48,6 @@ resources:
                 - dynamodb:GetItem
                 - dynamodb:PutItem
                 - dynamodb:Scan
-              Resource: arn:aws:dynamodb:*:*:table/sites
+              Resource: arn:aws:dynamodb:*:*:table/${file(./secrets.yml):dynamodb_table_name}
         Roles:
           - Ref: IamRoleLambdaExecution
