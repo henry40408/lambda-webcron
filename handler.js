@@ -62,10 +62,6 @@ function sendSlackNotification (results) {
     }
   })
 
-  if (attachments[0]) {
-    attachments[0].pretext = `*${attachments.length}* webcron(s) have been invocated`
-  }
-
   return webhook.send({ attachments })
 }
 
