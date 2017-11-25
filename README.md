@@ -23,7 +23,7 @@
 $ yarn
 ```
 
-## Default Values
+## Default Settings
 
 * AWS region: `ap-northeast-1`
 * DynamoDB table name: `sites`
