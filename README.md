@@ -53,9 +53,8 @@ $ cp secrets.example.yml secrets.yml
 $ edit secrets.yml
 ```
 
-Replace `slack_webhook_url` with your own Slack Webhook URL.
-
-Replace `dynamodb_table_name` if you like to, **but it's strongly recommended to
+* Replace `slack_webhook_url` with your own Slack Webhook URL.
+* Replace `dynamodb_table_name` if you like to, **but it's strongly recommended to
 modify it before first deployment**. It would be difficult to modify after first
 deployment.
 
