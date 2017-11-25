@@ -10,7 +10,8 @@
 
 ## Requirements
 
-* Node 6.x (LTS Boron)
+* Node 6.10.3, according to
+  [Lambda Execution Environment and Available Libraries](http://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html)
 * AWS CLI,
   [with credentials configured](https://serverless.com/framework/docs/providers/aws/guide/credentials/)
 
