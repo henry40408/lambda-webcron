@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:boron
+      - image: circleci/node:6.10.3
       - image: dwmkerr/dynamodb
     working_directory: ~/serverless-webcron
     steps:
