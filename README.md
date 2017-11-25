@@ -1,4 +1,10 @@
-# Serverless Webcron [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
+# Serverless Webcron
+
+[![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
+[![CircleCI](https://circleci.com/gh/henry40408/serverless-webcron.svg?style=shield)](https://circleci.com/gh/henry40408/serverless-webcron)
+[![codecov](https://codecov.io/gh/henry40408/serverless-webcron/branch/master/graph/badge.svg)](https://codecov.io/gh/henry40408/serverless-webcron)
+[![GitHub release](https://img.shields.io/github/release/henry40408/serverless-webcron.svg)](https://github.com/henry40408/serverless-webcron)
+[![license](https://img.shields.io/github/license/henry40408/serverless-webcron.svg)](https://github.com/henry40408/serverless-webcron)
 
 > Webcron powered by AWS Lambda
 
