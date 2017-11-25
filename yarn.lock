@@ -2203,9 +2203,9 @@ semver@~5.0.1:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.0.3.tgz#77466de589cd5d3c95f138aa78bc569a3cb5d27a"
 
-serverless@^1.24.0:
-  version "1.24.0"
-  resolved "https://registry.yarnpkg.com/serverless/-/serverless-1.24.0.tgz#67dad5f03a5511d635893337a3e8c1490cb8b257"
+serverless@^1.24.1:
+  version "1.24.1"
+  resolved "https://registry.yarnpkg.com/serverless/-/serverless-1.24.1.tgz#dd092a186d404dc9e48151d1f7cc2df7d270355a"
   dependencies:
     "@serverless/fdk" "^0.5.1"
     apollo-client "^1.9.2"
