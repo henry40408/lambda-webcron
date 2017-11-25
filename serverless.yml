@@ -18,7 +18,7 @@ functions:
     handler: handler.execute
     events:
       - schedule: cron(0 19 * * ? *)
-
+  
 resources:
   Resources:
     DynamoDbTable:

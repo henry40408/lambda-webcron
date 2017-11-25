@@ -1,0 +1,18 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:boron
+      - image: dwmkerr/dynamodb
+    working_directory: ~/serverless-webcron
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - yarn-{{ checksum "yarn.lock" }}
+      - run: yarn
+      - save_cache:
+          key: yarn-{{ checksum "yarn.lock" }}
+          paths: [node_modules]
+      - run: yarn ci
