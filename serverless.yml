@@ -1,4 +1,4 @@
-service: lambda-webcron
+service: serverless-webcron
 
 provider:
   name: aws
@@ -38,7 +38,7 @@ resources:
       Type: AWS::IAM::Policy
       DependsOn: DynamoDbTable
       Properties:
-        PolicyName: lambda-dynamodb
+        PolicyName: serverless-webcron-dynamodb
         PolicyDocument:
           Version: '2012-10-17'
           Statement:

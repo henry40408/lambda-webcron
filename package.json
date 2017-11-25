@@ -1,18 +1,12 @@
 {
-  "name": "lambda-webcron",
+  "name": "serverless-webcron",
   "version": "1.0.0",
   "description": "Web cron on AWS Lambda",
   "main": "handler.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "aws",
-    "lambda",
-    "web",
-    "cron",
-    "webcron"
-  ],
+  "keywords": ["aws", "lambda", "web", "cron", "webcron", "serverless"],
   "author": "Heng-Yi Wu <@henry40408>",
   "license": "MIT",
   "private": true,
