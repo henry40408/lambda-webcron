@@ -1,18 +1,12 @@
 {
-  "name": "lambda-webcron",
+  "name": "serverless-webcron",
   "version": "1.0.0",
   "description": "Web cron on AWS Lambda",
   "main": "handler.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "aws",
-    "lambda",
-    "web",
-    "cron",
-    "webcron"
-  ],
+  "keywords": ["aws", "lambda", "web", "cron", "webcron", "serverless"],
   "author": "Heng-Yi Wu <@henry40408>",
   "license": "MIT",
   "private": true,
@@ -23,7 +17,7 @@
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "serverless": "^1.24.0"
+    "serverless": "^1.24.1"
   },
   "dependencies": {
     "@slack/client": "^3.12.0",
