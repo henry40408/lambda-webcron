@@ -4,7 +4,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:6.10.3
-      - image: dwmkerr/dynamodb
+      - image: quay.io/henry40408/dynamodb:v1.0.1
     working_directory: ~/serverless-webcron
     steps:
       - checkout
