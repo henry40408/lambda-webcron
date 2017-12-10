@@ -6,6 +6,7 @@
 [![GitHub release](https://img.shields.io/github/release/henry40408/serverless-webcron.svg)](https://github.com/henry40408/serverless-webcron)
 [![license](https://img.shields.io/github/license/henry40408/serverless-webcron.svg)](https://github.com/henry40408/serverless-webcron)
 ![stability-stable](https://img.shields.io/badge/stability-stable-green.svg)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 > Webcron powered by AWS Lambda
 
