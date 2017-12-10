@@ -5,7 +5,7 @@
   "description": "Web cron on AWS Lambda",
   "main": "handler.js",
   "scripts": {
-    "test": "standard && jest",
+    "test": "eslint lib handler.js && jest",
     "ci": "yarn test && yarn codecov"
   },
   "keywords": ["aws", "lambda", "web", "cron", "webcron", "serverless"],

@@ -82,6 +82,13 @@ to DynamoDB, open `sites` table (might be different if you change it in
 }
 ```
 
+## How to Test
+
+1. [Install Docker CE](https://docs.docker.com/docker-for-mac/install/)
+2. `docker run -d -p 8000:8000 quay.io/henry40408/dynamodb:v1.0.1`
+3. `yarn`
+4. `yarn test`
+
 ## License
 
 MIT
